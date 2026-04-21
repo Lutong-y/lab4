@@ -89,8 +89,17 @@ def remove_note() -> str:
 def run():
     note = input("Please enter a note (enter :d to delete a note or :q to exit):  ")
     if note == ":d":
-        note = remove_note()
-        print(f"The following note has been removed: \n\n {note}")
+        p = Path(NOTES_PATH) / NOTES_FILE
+        if not p.exists():
+            try:
+                remove_note()
+                assert False
+            except FileNotFoundError:
+                assert True
+            print("The following note has been removed: \n\n None")
+        else:
+            note = remove_note()
+            print(f"The following note has been removed: \n\n {note}")
     elif note == ":q":
         return
     else:    
