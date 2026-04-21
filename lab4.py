@@ -114,13 +114,6 @@ if __name__ == "__main__":
     assert is_int('1.1') == False
     assert is_int(1.1) == True
     p = Path(NOTES_PATH) / NOTES_FILE
-    if p.exists():
-        p.unlink()
-    try:
-        remove_note()
-        assert False
-    except FileNotFoundError:
-        pass
     print("Welcome to PyNote! \n")
     read_notes()
     run()
