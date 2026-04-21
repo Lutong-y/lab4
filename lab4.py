@@ -113,7 +113,6 @@ if __name__ == "__main__":
     assert is_int(1) == True
     assert is_int('1.1') == False
     assert is_int(1.1) == True
-    p = Path(NOTES_PATH) / NOTES_FILE
     print("Welcome to PyNote! \n")
     read_notes()
     run()
